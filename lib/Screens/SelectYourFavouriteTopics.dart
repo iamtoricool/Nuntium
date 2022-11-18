@@ -1,77 +1,81 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nb_utils/nb_utils.dart';
-import '../AppTheme/ThemeColors.dart';
-import 'SignIn.dart';
+import 'package:nuntium/Screens/Extras/FavouriteTopics.dart';
 
-class SelectYourFavouriteTopicsScreen extends StatefulWidget {
-  const SelectYourFavouriteTopicsScreen({super.key});
+import '../AppTheme/ThemeColors.dart';
+
+class SelectFavouriteTopics extends StatefulWidget {
+  const SelectFavouriteTopics({super.key});
 
   @override
-  State<SelectYourFavouriteTopicsScreen> createState() =>
-      _SelectYourFavouriteTopicsScreenState();
+  State<SelectFavouriteTopics> createState() => _SelectFavouriteTopicsState();
 }
 
-class _SelectYourFavouriteTopicsScreenState
-    extends State<SelectYourFavouriteTopicsScreen> {
+class _SelectFavouriteTopicsState extends State<SelectFavouriteTopics> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Flexible(
-      fit: FlexFit.tight,
-      child: Column(
-        children: [
-          Container(
-            alignment: Alignment.centerLeft,
-            height: 88,
-            padding: const EdgeInsets.only(left: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Create New Password 🔒',
-                  style: GoogleFonts.sourceSansPro(
-                      fontSize: 24,
-                      color: ThemeColors().blackPrimary,
-                      fontWeight: FontWeight.w600),
-                ),
-                const SizedBox(
-                  height: 8,
-                ),
-                Container(
-                  alignment: Alignment.center,
-                  width: 300,
-                  child: Text(
-                    'You can create a new password, please dont forget it too.',
+        body: SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.only(
+          top: 72,
+          left: 20,
+          right: 20,
+        ),
+        child: Column(
+          children: [
+            Container(
+              alignment: Alignment.centerLeft,
+              height: 88,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Select your favorite topics',
                     style: GoogleFonts.sourceSansPro(
-                        fontSize: 16, color: ThemeColors().greyPrimary),
+                        fontSize: 24,
+                        color: ThemeColors().blackPrimary,
+                        fontWeight: FontWeight.w600),
                   ),
-                )
-              ],
-            ),
-          ),
-          const SizedBox(
-            height: 32,
-          ),
-          // FavouriteTopics(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "Didn’t receive an email? ",
-                style: GoogleFonts.sourceSansPro(
-                    fontSize: 16, color: ThemeColors().blackLighter),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  Container(
+                    alignment: Alignment.center,
+                    width: 300,
+                    child: Text(
+                      'Select some of your favorite topics to let us suggest better news for you.',
+                      style: GoogleFonts.sourceSansPro(
+                          fontSize: 16, color: ThemeColors().greyPrimary),
+                    ),
+                  )
+                ],
               ),
-              Text(
-                'Send again',
+            ),
+            Container(
+              alignment: Alignment.center,
+              height: MediaQuery.of(context).size.height / 1.5,
+              width: double.maxFinite,
+              child: const FavouriteTopics(),
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            Container(
+              alignment: Alignment.center,
+              height: 56,
+              width: 336,
+              decoration: BoxDecoration(
+                  color: ThemeColors().purplePrimary,
+                  borderRadius: BorderRadius.circular(10)),
+              child: Text(
+                'Next',
                 style: GoogleFonts.sourceSansPro(
-                    fontSize: 16,
-                    color: ThemeColors().blackPrimary,
-                    fontWeight: FontWeight.w600),
-              ).onTap(() => const SignInScreen().launch(context))
-            ],
-          )
-        ],
+                    fontSize: 16, color: ThemeColors().white),
+              ),
+            )
+          ],
+        ),
       ),
     ));
   }

@@ -164,8 +164,7 @@ class _CreateNewPasswordScreenState extends State<SignUpScreen> {
                     style: GoogleFonts.sourceSansPro(
                         fontSize: 16, color: ThemeColors().white),
                   ),
-                ).onTap(() =>
-                    const SelectYourFavouriteTopicsScreen().launch(context))),
+                ).onTap(() => const SelectFavouriteTopics().launch(context))),
             const SizedBox(
               height: 150,
             ),

@@ -1,6 +1,6 @@
 # nuntium
 
-A new Flutter project.
+A Simple News App
 
 ## Getting Started
 
